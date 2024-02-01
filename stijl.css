@@ -1,0 +1,233 @@
+html {box-sizing: border-box;}
+*, *:before, *:after {box-sizing: inherit;}
+
+/* gebruikte kleuren:
+donkere kleur voor tekst, achtergrond en border: #193619
+lichte kleur voor achtergrond en voor tekst op donkere achtergrond: #ffedea
+roze kleur voor de links: #ff8bfe
+achtergrondkleur div.fig1, div.fig2 en div.fig3: #7d8e7c
+andere kleuren die in deze figuren worden gebruikt:#193619 en #ff8bfe 
+*/
+
+div.fig1, div.fig2, div.fig3 {
+    border: 1px solid #193619;
+    height: 15rem;
+    margin-bottom: 1rem;
+}
+
+body {
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+/* tip! wees specifiek in je gebruik van selectors, bvb main > ul en main > ul > li. Want in div.fig1 zit nog een ul */
+header{
+    padding: 2rem;
+    background-color: #193619;
+}
+nav h1{color: #ffedea;}
+nav h1>a{
+    color:#ffedea;
+    font-style: italic;
+}
+nav h1>a:nth-child(1){
+    display: block;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+    font-style: normal;
+    margin-bottom: 1rem;
+}
+
+main>h3{
+    height: 5vh;
+    background-color: #193619;
+    color: #ffedea;
+    padding-left: 1rem;
+    padding-top: .5rem;
+}
+main a{color: #ff8bfe;}
+main>ul{
+    padding: 1rem;
+    line-height: 2rem;
+}
+main>ul>li>h2>a{
+    text-decoration: none;
+    color: #193619;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+main>ul>li{border-bottom: 2px solid #193619;}
+main>ul>li>div{margin-top: 1rem;}
+main>ul>li>h4{margin-bottom: 1rem;}
+main>ul>li>p:nth-child(2)>a{padding-bottom: 1rem;}
+
+/*styling banners*/
+div.banner-container{
+    height: 30vh;
+    width: 100%;
+}
+div.banner-grid{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    height: 30vh;
+    animation: banner 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-direction: alternate;
+}
+div.banner1{
+    background-image: url(examen-banner-1.png); 
+    position:relative; 
+    width: 100vw;
+    grid-column: 1/2;
+}
+div.banner2{
+    background-image: url(examen-banner-2.png); 
+    position:relative; 
+    width: 100vw;
+    grid-column: 2/3;
+}
+div.banner3{
+    background-image: url(examen-banner-3.png); 
+    position: relative; 
+    width: 100vw;
+    grid-column: 3/4;
+}
+div.caption h2{
+    position: absolute;
+    bottom: 3rem;
+    padding: .5rem;
+    background-color: #193619;
+    margin-left: 1rem;
+    color: #ffedea;
+}
+div.caption h3{
+    position: absolute;
+    bottom: .5rem;
+    padding: .5rem;
+    background-color: #ffedea;
+    margin-left: 1rem;
+    color: #193619;
+}
+@keyframes banner{
+    0%,20%{transform:translateX(0vw)}
+    40%,60%{transform:translateX(-100vw)}
+    80%,100%{transform: translateX(-200vw);}
+}
+
+/*styling fig 1*/
+main>ul>li:nth-child(1)>div.fig1>ul{
+    display: grid;
+    height: 15rem;
+    width: 100%;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(2,1fr);
+    background-color: #7d8e7c;
+    padding: 1rem;
+    gap: 1rem;
+}
+div.fig1>ul>li:nth-child(1){
+    grid-column: 1/2;
+    grid-row: 1/2;
+    background-color: #ff8bfe;
+}
+div.fig1>ul>li:nth-child(2){
+    grid-column: 2/3;
+    grid-row: 1/2;
+    background-color: #193619;
+}
+div.fig1>ul>li:nth-child(3){
+    grid-column: 3/4;
+    grid-row: 1/2;
+    background-color: #ff8bfe;
+}
+div.fig1>ul>li:nth-child(4){
+    grid-column: 1/2;
+    grid-row: 2/3;
+    background-color: #193619;
+}
+div.fig1>ul>li:nth-child(5){
+    grid-column: 2/3;
+    grid-row: 2/3;
+    background-color: #ff8bfe;
+}
+div.fig1>ul>li:nth-child(6){
+    grid-column: 3/4;
+    grid-row: 2/3;
+    background-color: #193619;
+}
+
+/*styling fig 2*/
+main>ul>li:nth-child(2)>div.fig2{
+    background-color: #7d8e7c;
+}
+div.fig2>p:nth-child(1){
+    height: inherit;
+    width: inherit;
+    background-image: repeating-linear-gradient(90deg, #ff8bfe, #ff8bfe 3rem, #193619 3rem, #193619 6rem);
+    clip-path: polygon(53% 24%, 100% 0, 83% 54%, 100% 100%, 52% 77%, 0 100%, 22% 54%, 0 0);
+}
+
+
+/*styling fig3*/
+main>ul>li:nth-child(3)>div.fig3{
+    background-color: #7d8e7c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main>ul>li:nth-child(3)>div.fig3>h2{
+    font-size: 4rem;
+    font-weight: bold;
+    color: #ff8bfe;
+}
+
+/*styling footer*/
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    background-color: #193619;
+}
+footer a, footer p{
+    color: #ffedea;
+}
+
+@media (min-width:1000px){
+    header{text-align: left; width: 100vw;}
+    main{
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr ;
+        width: 100vw;
+    }
+    main ul{width: 100%;}
+    main>div.banner-container{
+        grid-column: 1/4;
+        grid-row: 1/2;
+    }
+    main>h3{grid-column: 1/4;}
+    main>ul>li{
+        display: grid;
+        gap: 1rem;
+        width: 100vw;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: 1fr 2fr 1fr;
+    }
+    main>ul>li>div{grid-column: 1/2; grid-row: 1/3;}
+    main>ul>li>h2{grid-column: 2/3; grid-row: 1/2;}
+    main>ul>li>h4{grid-column: 3/4; grid-row: 1/2;}
+    main>ul>li>p:first-child{grid-column: 2/3;grid-row: 2/3;}
+    main>ul>li>p:last-child{grid-column: 2/3;grid-row: 3/4;}
+
+    div.fig1>ul>li:nth-child(3){grid-column: 4/5; grid-row: 1/3;}
+    div.fig1>ul>li:nth-child(6){grid-row: 1/3;}
+}
+
+@media (min-width:1200px){
+    main>ul>li{
+        padding: 3rem;
+    }
+}
+
